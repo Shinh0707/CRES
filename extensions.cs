@@ -19,10 +19,10 @@ public static class SerializedObjectExt{
 }
 
 public static class MethodInfoExt{
-  public static T Invoke<T>(this MethodInfo methodInfo)
+  public static T Invoke<T>(this MethodInfo methodInfo,object classObject)
   {
     if (methodInfo.)
-    return methodInfo.Invoke(new object[]{}) as T;
+    return methodInfo.Invoke(classObject,new object[]{}) as T;
   }
 }
 
