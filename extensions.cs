@@ -7,8 +7,8 @@ using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 using System.Threading;
 
-public static class SerializedObjectExt{
-  public static MethodInfo? GetMethod (this SerializedObject sobj,string name, BindingFlags bindingAttr)
+public static class SerializedPropertyExt{
+  public static MethodInfo? GetMethod (this SerializedProperty propety,string name, BindingFlags bindingAttr)
   {
     var targetObject = property.serializedObject.targetObject;
     var targetObjectClassType = targetObject.GetType();
@@ -16,7 +16,7 @@ public static class SerializedObjectExt{
     var targetFieldType = field.FieldType;
     return targetFieldType.GetMethod(name,bindingAttr);
   }
-  public static object? InvokeMethod (this SerializedObject sobj,string name, BindingFlags bindingAttr)
+  public static object? InvokeMethod (this SerializedProperty propety,string name, BindingFlags bindingAttr)
   {
     var targetObject = property.serializedObject.targetObject;
     var targetObjectClassType = targetObject.GetType();
