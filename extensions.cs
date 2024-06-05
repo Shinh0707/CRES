@@ -22,8 +22,9 @@ public static class SerializedPropertyExt{
     var targetObjectClassType = targetObject.GetType();
     var field = targetObjectClassType.GetField(property.propertyPath);
     var targetFieldType = field.FieldType;
+    object fieldObject = field.GetValue(targetObject);
     var methodInfo = targetFieldType.GetMethod(name,bindingAttr);
     if (methodInfo == null) return null;
-    return methodInfo.Invoke()
+    return methodInfo.Invoke(fieldObject,new object[]{});
   }
 }
