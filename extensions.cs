@@ -17,3 +17,12 @@ public static class SerializedObjectExt{
     return targetFieldType.GetMethod(name,bindingAttr);
   }
 }
+
+public static class MethodInfoExt{
+  public static T Invoke<T>(this MethodInfo methodInfo)
+  {
+    if (methodInfo.)
+    return methodInfo.Invoke(new object[]{}) as T;
+  }
+}
+
