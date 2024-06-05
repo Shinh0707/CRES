@@ -11,8 +11,9 @@ public static class SerializedObjectExt{
   public static MethodInfo? GetMethod (this SerializedObject sobj,string name, BindingFlags bindingAttr)
   {
     var targetObject = property.serializedObject.targetObject;
-    Type targetObjectClassType = targetObject.GetType();
+    var targetObjectClassType = targetObject.GetType();
     var field = targetObjectClassType.GetField(property.propertyPath);
-    return targetObjectClassType.GetMethod(name,bindingAttr);
+    var targetFieldType = field.FieldType;
+    return targetFieldType.GetMethod(name,bindingAttr);
   }
 }
