@@ -16,13 +16,14 @@ public static class SerializedObjectExt{
     var targetFieldType = field.FieldType;
     return targetFieldType.GetMethod(name,bindingAttr);
   }
-}
-
-public static class MethodInfoExt{
-  public static T Invoke<T>(this MethodInfo methodInfo,object classObject)
+  public static object? InvokeMethod (this SerializedObject sobj,string name, BindingFlags bindingAttr)
   {
-    if (methodInfo.)
-    return methodInfo.Invoke(classObject,new object[]{}) as T;
+    var targetObject = property.serializedObject.targetObject;
+    var targetObjectClassType = targetObject.GetType();
+    var field = targetObjectClassType.GetField(property.propertyPath);
+    var targetFieldType = field.FieldType;
+    var methodInfo = targetFieldType.GetMethod(name,bindingAttr);
+    if (methodInfo == null) return null;
+    return methodInfo.Invoke()
   }
 }
-
