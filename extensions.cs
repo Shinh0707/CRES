@@ -1,3 +1,12 @@
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
+using System.Threading;
+
 public static class SerializedObjectExt{
   public static T GetMethod(this SerializedObject sobj,string methodName){
     var targetObject = property.serializedObject.targetObject;
