@@ -12,6 +12,7 @@ public static class SerializedObjectExt{
   {
     var targetObject = property.serializedObject.targetObject;
     Type targetObjectClassType = targetObject.GetType();
+    var field = targetObjectClassType.GetField(property.propertyPath);
     return targetObjectClassType.GetMethod(name,bindingAttr);
   }
 }
